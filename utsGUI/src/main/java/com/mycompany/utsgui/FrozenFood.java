@@ -4,15 +4,18 @@
  */
 package com.mycompany.utsgui;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author D-7
  */
 public class FrozenFood extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form FrozenFood
      */
+    String nama,notelepon,alamat,pengemasan;
     public FrozenFood() {
         initComponents();
     }
@@ -26,30 +29,32 @@ public class FrozenFood extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        btngrup = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtnamapemesan = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jCheckBox8 = new javax.swing.JCheckBox();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jCheckBox9 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
-        jLabel5 = new javax.swing.JLabel();
+        cbxcireng = new javax.swing.JCheckBox();
+        cbxtempura = new javax.swing.JCheckBox();
+        cbxdimsum = new javax.swing.JCheckBox();
+        cbxsosissapi = new javax.swing.JCheckBox();
+        cbxnugget = new javax.swing.JCheckBox();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtalamat = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
+        cmbcireng = new javax.swing.JComboBox<>();
+        btnkirim = new javax.swing.JButton();
+        btnreset = new javax.swing.JButton();
+        btnkeluar = new javax.swing.JButton();
+        txtnomortelepon = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        cmbsosissapi = new javax.swing.JComboBox<>();
+        cmbnugget = new javax.swing.JComboBox<>();
+        cmbtempura = new javax.swing.JComboBox<>();
+        cmbdimsum = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,43 +64,87 @@ public class FrozenFood extends javax.swing.JFrame {
 
         jLabel3.setText("LIST MAKANAN");
 
-        jLabel4.setText("HARGA & SIZE MAKANAN");
+        cbxcireng.setText("Cireng~Rp 15.000");
 
-        jCheckBox1.setText("KENALPOT");
+        cbxtempura.setText("Tempura ~Rp 15.000");
 
-        jCheckBox2.setText("BAKSO TIKUS");
+        cbxdimsum.setText("Dimsum~Rp 20.000");
+        cbxdimsum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxdimsumActionPerformed(evt);
+            }
+        });
 
-        jCheckBox3.setText("MARTABAK");
+        cbxsosissapi.setText("Sosis Sapi~Rp 30.000");
+        cbxsosissapi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxsosissapiActionPerformed(evt);
+            }
+        });
 
-        jCheckBox6.setText("Medium");
-
-        jCheckBox7.setText("Reguler");
-
-        jCheckBox8.setText("Jumbo");
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jCheckBox9.setText("BATAGOR BASI");
-
-        jCheckBox4.setText("DHIMAZ SP");
-
-        jLabel5.setText("JUMLAH MAKANAN");
+        cbxnugget.setText("Nugget~Rp 20.000");
+        cbxnugget.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxnuggetActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("ALAMAT");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtalamat.setColumns(20);
+        txtalamat.setRows(5);
+        jScrollPane1.setViewportView(txtalamat);
 
-        jLabel7.setText("KURIR");
+        jLabel7.setText("PENGEMASAN TAMBAHAN");
 
-        jRadioButton1.setText("jRadioButton1");
+        btngrup.add(jRadioButton1);
+        jRadioButton1.setText("YA");
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
 
-        jRadioButton2.setText("jRadioButton2");
+        btngrup.add(jRadioButton2);
+        jRadioButton2.setText("TIDAK");
+
+        cmbcireng.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3" }));
+
+        btnkirim.setText("KIRIM");
+        btnkirim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnkirimActionPerformed(evt);
+            }
+        });
+
+        btnreset.setText("RESET");
+        btnreset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnresetActionPerformed(evt);
+            }
+        });
+
+        btnkeluar.setText("KELUAR");
+        btnkeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnkeluarActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("NOMOR TELEPON");
+
+        cmbsosissapi.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3" }));
+
+        cmbnugget.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3" }));
+        cmbnugget.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbnuggetActionPerformed(evt);
+            }
+        });
+
+        cmbtempura.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3" }));
+
+        cmbdimsum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0", "1", "2", "3" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,95 +153,226 @@ public class FrozenFood extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(318, 318, 318)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(48, 48, 48)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGap(91, 91, 91)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton2)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField1)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jCheckBox1)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jCheckBox2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jCheckBox3))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jCheckBox9)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jCheckBox4))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jCheckBox6)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(24, 24, 24)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jCheckBox7)
-                                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(30, 30, 30)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jCheckBox8)))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 303, Short.MAX_VALUE)
-                                .addComponent(jRadioButton1)))))
-                .addContainerGap(210, Short.MAX_VALUE))
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(71, 71, 71)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jRadioButton1)
+                                .addGap(29, 29, 29)
+                                .addComponent(jRadioButton2))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cbxsosissapi)
+                                    .addComponent(cbxcireng)
+                                    .addComponent(cbxnugget)
+                                    .addComponent(cbxtempura)
+                                    .addComponent(cbxdimsum)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(21, 21, 21)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(cmbdimsum, 0, 0, Short.MAX_VALUE)
+                                            .addComponent(cmbtempura, javax.swing.GroupLayout.Alignment.LEADING, 0, 0, Short.MAX_VALUE)
+                                            .addComponent(cmbcireng, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(cmbsosissapi, javax.swing.GroupLayout.Alignment.LEADING, 0, 0, Short.MAX_VALUE)
+                                            .addComponent(cmbnugget, javax.swing.GroupLayout.Alignment.LEADING, 0, 0, Short.MAX_VALUE)))))
+                            .addComponent(txtnamapemesan)
+                            .addComponent(txtnomortelepon)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 430, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(305, 305, 305)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(84, 84, 84)
+                .addComponent(btnkirim, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
+                .addComponent(btnreset, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(152, 152, 152)
+                .addComponent(btnkeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox2)
-                    .addComponent(jCheckBox3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jCheckBox9)
-                    .addComponent(jCheckBox4))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jCheckBox6)
-                    .addComponent(jCheckBox7)
-                    .addComponent(jCheckBox8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jRadioButton1))
+                    .addComponent(txtnamapemesan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jRadioButton2)
-                .addContainerGap(135, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(cbxcireng))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmbcireng, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(cbxsosissapi)
+                .addGap(3, 3, 3)
+                .addComponent(cmbsosissapi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbxnugget)
+                .addGap(9, 9, 9)
+                .addComponent(cmbnugget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbxtempura)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cmbtempura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbxdimsum)
+                .addGap(1, 1, 1)
+                .addComponent(cmbdimsum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(txtnomortelepon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButton1)
+                            .addComponent(jRadioButton2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel7)
+                        .addGap(67, 67, 67)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnreset, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnkirim, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnkeluar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(66, 66, 66))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cbxdimsumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxdimsumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxdimsumActionPerformed
+
+    private void cbxsosissapiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxsosissapiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxsosissapiActionPerformed
+
+    private void cbxnuggetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxnuggetActionPerformed
+        // TODO add your handling code here: private void cbxdimsumActionPerformed(java.awt.event.ActionEvent evt) {                                          
+   
+    }//GEN-LAST:event_cbxnuggetActionPerformed
+
+    private void btnkirimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnkirimActionPerformed
+        // TODO add your handling code here:                                    
+    String nama = txtnamapemesan.getText();
+    String notelepon = txtnomortelepon.getText();
+    String alamat = txtalamat.getText();
+    String pengemasan = jRadioButton1.isSelected() ? "Ya" : "Tidak";
+
+    // Memeriksa makanan yang dipilih
+    StringBuilder pesanan = new StringBuilder();
+    int totalHarga = 0;
+
+    if (cbxcireng.isSelected()) {
+        int jumlahCireng = Integer.parseInt(cmbcireng.getSelectedItem().toString());
+        if (jumlahCireng > 0) {
+            pesanan.append("- Cireng: ").append(jumlahCireng).append(" pcs\n");
+            totalHarga += jumlahCireng * 15000;
+        }
+    }
+
+    if (cbxsosissapi.isSelected()) {
+        int jumlahSosis = Integer.parseInt(cmbsosissapi.getSelectedItem().toString());
+        if (jumlahSosis > 0) {
+            pesanan.append("- Sosis Sapi: ").append(jumlahSosis).append(" pcs\n");
+            totalHarga += jumlahSosis * 30000;
+        }
+    }
+
+    if (cbxnugget.isSelected()) {
+        int jumlahNugget = Integer.parseInt(cmbnugget.getSelectedItem().toString());
+        if (jumlahNugget > 0) {
+            pesanan.append("- Nugget: ").append(jumlahNugget).append(" pcs\n");
+            totalHarga += jumlahNugget * 20000;
+        }
+    }
+
+    if (cbxtempura.isSelected()) {
+        int jumlahTempura = Integer.parseInt(cmbtempura.getSelectedItem().toString());
+        if (jumlahTempura > 0) {
+            pesanan.append("- Tempura: ").append(jumlahTempura).append(" pcs\n");
+            totalHarga += jumlahTempura * 15000;
+        }
+    }
+
+    if (cbxdimsum.isSelected()) {
+        int jumlahDimsum = Integer.parseInt(cmbdimsum.getSelectedItem().toString());
+        if (jumlahDimsum > 0) {
+            pesanan.append("- Dimsum: ").append(jumlahDimsum).append(" pcs\n");
+            totalHarga += jumlahDimsum * 20000;
+        }
+    }
+
+    // Validasi input
+    if (nama.isEmpty() || notelepon.isEmpty() || alamat.isEmpty() || pesanan.length() == 0) {
+        JOptionPane.showMessageDialog(this, "Harap lengkapi semua data dan periksa kembali pesanan anda!", "Peringatan", JOptionPane.WARNING_MESSAGE);
+    } else {
+        // Menampilkan detail pesanan menggunakan JOptionPane
+        String pesan = "Detail Pesanan:\n"
+                + "Nama Pemesan: " + nama + "\n"
+                + "Nomor Telepon: " + notelepon + "\n"
+                + "Alamat: " + alamat + "\n"
+                + "Pengemasan Tambahan: " + pengemasan + "\n\n"
+                + "Pesanan:\n" + pesanan.toString()
+                + "\nTotal Harga: Rp " + totalHarga;
+
+        JOptionPane.showMessageDialog(this, pesan, "Konfirmasi Pesanan", JOptionPane.INFORMATION_MESSAGE);
+    }   
+         
+    }//GEN-LAST:event_btnkirimActionPerformed
+
+    private void btnresetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnresetActionPerformed
+        // TODO add your handling code here:
+        txtnamapemesan.setText("");
+        cbxcireng.setText("");
+        cbxsosissapi.setText("");
+        cbxnugget.setText("");
+        cbxtempura.setText("");
+        cbxdimsum.setText("");
+        cmbcireng.setSelectedItem("");
+        cmbsosissapi.setSelectedItem("");
+        cmbnugget.setSelectedItem("");
+        cmbtempura.setSelectedItem("");
+        cmbdimsum.setSelectedItem("");
+        txtnomortelepon.setText("");
+        txtalamat.setText("");
+        btngrup.clearSelection();
+    }//GEN-LAST:event_btnresetActionPerformed
+
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void cmbnuggetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbnuggetActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbnuggetActionPerformed
+
+    private void btnkeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnkeluarActionPerformed
+        // TODO add your handling code here:
+    int confirm = JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin keluar?", "Konfirmasi Keluar", JOptionPane.YES_NO_OPTION);
+    if (confirm == JOptionPane.YES_OPTION) {
+        System.exit(0); // Menutup aplikasi
+    }
+
+    }//GEN-LAST:event_btnkeluarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,29 +410,31 @@ public class FrozenFood extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JCheckBox jCheckBox9;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.ButtonGroup btngrup;
+    private javax.swing.JButton btnkeluar;
+    private javax.swing.JButton btnkirim;
+    private javax.swing.JButton btnreset;
+    private javax.swing.JCheckBox cbxcireng;
+    private javax.swing.JCheckBox cbxdimsum;
+    private javax.swing.JCheckBox cbxnugget;
+    private javax.swing.JCheckBox cbxsosissapi;
+    private javax.swing.JCheckBox cbxtempura;
+    private javax.swing.JComboBox<String> cmbcireng;
+    private javax.swing.JComboBox<String> cmbdimsum;
+    private javax.swing.JComboBox<String> cmbnugget;
+    private javax.swing.JComboBox<String> cmbsosissapi;
+    private javax.swing.JComboBox<String> cmbtempura;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextArea txtalamat;
+    private javax.swing.JTextField txtnamapemesan;
+    private javax.swing.JTextField txtnomortelepon;
     // End of variables declaration//GEN-END:variables
 }
